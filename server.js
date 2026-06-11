@@ -1,5 +1,5 @@
 const express = require("express");
-const db = require("./db");
+const axios = require("axios");
 
 const app = express();
 
@@ -11,24 +11,27 @@ app.get("/", (req, res) => {
     res.sendFile(__dirname + "/public/index.html");
 });
 
-app.post("/search", (req, res) => {
+app.post("/search", async (req, res) => {
 
     const ifsc = req.body.ifsc;
 
-    db.query(
-        "SELECT * FROM bank_details WHERE ifsc=?",
-        [ifsc],
-        (err, result) => {
+    try {
 
-            if (err) {
-                return res.send("Database Error");
-            }
+        const response = await axios.get(
+            `https://ifsc.razorpay.com/${ifsc}`
+        );
 
-            res.render("result", {
-                bank: result[0]
-            });
-        }
-    );
+        res.render("result", {
+            bank: response.data
+        });
+
+    } catch (error) {
+
+        res.render("result", {
+            bank: null
+        });
+
+    }
 });
 
 const PORT = process.env.PORT || 3000;

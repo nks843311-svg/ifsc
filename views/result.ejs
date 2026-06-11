@@ -9,19 +9,20 @@
 
 <h2>Bank Details</h2>
 
-<p><b>IFSC:</b> <%= bank.ifsc %></p>
-<p><b>Bank:</b> <%= bank.bank_name %></p>
-<p><b>Branch:</b> <%= bank.branch %></p>
-<p><b>Address:</b> <%= bank.address %></p>
-<p><b>City:</b> <%= bank.city %></p>
-<p><b>State:</b> <%= bank.state %></p>
+<p><b>Bank:</b> <%= bank.BANK %></p>
+<p><b>Branch:</b> <%= bank.BRANCH %></p>
+<p><b>IFSC:</b> <%= bank.IFSC %></p>
+<p><b>Address:</b> <%= bank.ADDRESS %></p>
+<p><b>City:</b> <%= bank.CITY %></p>
+<p><b>State:</b> <%= bank.STATE %></p>
 
 <% } else { %>
 
-<h3>IFSC Not Found</h3>
+<h3>Invalid IFSC Code</h3>
 
 <% } %>
 
+<br>
 <a href="/">Search Again</a>
 
 </body>
