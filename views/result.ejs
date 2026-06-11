@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Result</title>
+</head>
+<body>
+
+<% if(bank){ %>
+
+<h2>Bank Details</h2>
+
+<p><b>IFSC:</b> <%= bank.ifsc %></p>
+<p><b>Bank:</b> <%= bank.bank_name %></p>
+<p><b>Branch:</b> <%= bank.branch %></p>
+<p><b>Address:</b> <%= bank.address %></p>
+<p><b>City:</b> <%= bank.city %></p>
+<p><b>State:</b> <%= bank.state %></p>
+
+<% } else { %>
+
+<h3>IFSC Not Found</h3>
+
+<% } %>
+
+<a href="/">Search Again</a>
+
+</body>
+</html>
